@@ -19,3 +19,5 @@ def main():
                 break
             if not text.strip():
                 continue
+            prediction = model.predict([text])[0]
+            print(f'Prediction: [{prediction.upper()}]')

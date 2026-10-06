@@ -13,3 +13,5 @@ def main():
     df.columns = ['label', 'text']
     print('Splitting data...')
     X_train, X_test, y_train, y_test = train_test_split(df['text'], df['label'], test_size=0.2, random_state=42)
+    print('Training Multinomial Naive Bayes model...')
+    model = make_pipeline(CountVectorizer(), MultinomialNB())

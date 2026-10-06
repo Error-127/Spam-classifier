@@ -15,3 +15,5 @@ def main():
     while True:
         try:
             text = input('\nEnter message: ')
+            if text.lower() in ['exit', 'quit']:
+                break

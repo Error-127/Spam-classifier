@@ -21,3 +21,6 @@ def main():
                 continue
             prediction = model.predict([text])[0]
             print(f'Prediction: [{prediction.upper()}]')
+        except KeyboardInterrupt:
+            print('\nExiting...')
+            break

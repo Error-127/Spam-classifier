@@ -11,3 +11,5 @@ def main():
     df = pd.read_csv('spam.csv', encoding='latin-1')
     df = df[['v1', 'v2']]
     df.columns = ['label', 'text']
+    print('Splitting data...')
+    X_train, X_test, y_train, y_test = train_test_split(df['text'], df['label'], test_size=0.2, random_state=42)

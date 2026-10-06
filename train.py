@@ -21,3 +21,7 @@ def main():
     print(f'Accuracy: {accuracy_score(y_test, predictions):.4f}')
     print('\nClassification Report:')
     print(classification_report(y_test, predictions))
+    print("Saving model to 'spam_classifier_model.pkl'...")
+    joblib.dump(model, 'spam_classifier_model.pkl')
+    print('Done!')
+

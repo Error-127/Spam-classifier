@@ -12,3 +12,6 @@ def main():
     print('Type your message below and press Enter to classify.')
     print('Type exit or quit to stop.')
 
+    while True:
+        try:
+            text = input('\nEnter message: ')

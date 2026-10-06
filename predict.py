@@ -17,3 +17,5 @@ def main():
             text = input('\nEnter message: ')
             if text.lower() in ['exit', 'quit']:
                 break
+            if not text.strip():
+                continue

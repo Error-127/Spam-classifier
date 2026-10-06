@@ -24,3 +24,6 @@ def main():
         except KeyboardInterrupt:
             print('\nExiting...')
             break
+        except Exception as e:
+            print(f'An error occurred: {e}')
+

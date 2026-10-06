@@ -16,9 +16,9 @@ def classify_email(text):
     prediction = model.predict([text])[0]
     
     if prediction.lower() == 'spam':
-        return "🚨 This looks like **SPAM**!"
+        return "🚨 This looks **Non Replyable** (Spam)!"
     else:
-        return "✅ This looks like **HAM** (Safe)."
+        return "✅ This looks **Replyable** (Safe/Ham)."
 
 # Create the Gradio interface
 interface = gr.Interface(

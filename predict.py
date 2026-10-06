@@ -20,7 +20,11 @@ def main():
             if not text.strip():
                 continue
             prediction = model.predict([text])[0]
-            print(f'Prediction: [{prediction.upper()}]')
+            if prediction.lower() == 'spam':
+                result_text = "NON REPLYABLE"
+            else:
+                result_text = "REPLYABLE"
+            print(f'Prediction: [{result_text}]')
         except KeyboardInterrupt:
             print('\nExiting...')
             break

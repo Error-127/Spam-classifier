@@ -19,3 +19,5 @@ def main():
     print('Evaluating model...')
     predictions = model.predict(X_test)
     print(f'Accuracy: {accuracy_score(y_test, predictions):.4f}')
+    print('\nClassification Report:')
+    print(classification_report(y_test, predictions))

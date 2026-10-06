@@ -18,3 +18,4 @@ def main():
     model.fit(X_train, y_train)
     print('Evaluating model...')
     predictions = model.predict(X_test)
+    print(f'Accuracy: {accuracy_score(y_test, predictions):.4f}')

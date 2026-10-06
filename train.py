@@ -6,3 +6,6 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report, accuracy_score
 import joblib
 
+def main():
+    print('Loading dataset...')
+    df = pd.read_csv('spam.csv', encoding='latin-1')

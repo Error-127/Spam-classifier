@@ -25,3 +25,5 @@ def main():
     joblib.dump(model, 'spam_classifier_model.pkl')
     print('Done!')
 
+if __name__ == '__main__':
+    main()

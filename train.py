@@ -16,3 +16,5 @@ def main():
     print('Training Multinomial Naive Bayes model...')
     model = make_pipeline(CountVectorizer(), MultinomialNB())
     model.fit(X_train, y_train)
+    print('Evaluating model...')
+    predictions = model.predict(X_test)

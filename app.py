@@ -26,9 +26,7 @@ interface = gr.Interface(
     inputs=gr.Textbox(lines=7, placeholder="Paste your email or SMS message here...", label="Email / SMS Content"),
     outputs=gr.Markdown(label="Prediction Result"),
     title="Email & SMS Spam Classifier",
-    description="A machine learning model trained with Multinomial Naive Bayes. Paste an email or text message below to check if it's spam or not.",
-    theme="default",
-    allow_flagging="never"
+    description="A machine learning model trained with Multinomial Naive Bayes. Paste an email or text message below to check if it's spam or not."
 )
 
 if __name__ == "__main__":

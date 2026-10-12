@@ -71,4 +71,9 @@ with gr.Blocks() as interface:
     clear_btn.click(lambda: ("", "<div style='text-align: center; padding: 2rem; color: #95a5a6; border: 2px dashed #bdc3c7; border-radius: 8px;'>Result will appear here</div>"), inputs=None, outputs=[input_box, output_box])
 
 if __name__ == "__main__":
-    interface.launch(theme=gr.themes.Soft(primary_hue="blue", neutral_hue="slate"))
+    port = int(os.environ.get("PORT", 7860))
+    interface.launch(
+        server_name="0.0.0.0",
+        server_port=port,
+        theme=gr.themes.Soft(primary_hue="blue", neutral_hue="slate")
+    )

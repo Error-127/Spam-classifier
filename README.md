@@ -2,7 +2,7 @@
 
 A machine learning web app that classifies a message as **Spam** or **Not Spam** (Ham) in real time.
 
-🔗 **Live Demo:** [https://spam-classifier-qfvu.onrender.com/](https://spam-classifier.onrender.com)
+🔗 **Live Demo:** [https://spam-classifier-qfvu.onrender.com/](https://spam-classifier-qfvu.onrender.com/)
 
 > ⚠️ Hosted on Render's free plan, so the first load may take 30-60 seconds if the app has been idle.
 

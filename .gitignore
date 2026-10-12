@@ -1,2 +1,7 @@
-spam_classifier_model.pkl
 __pycache__/
+*.pyc
+extract_data.py
+make_commits.py
+.env
+venv/
+.venv/

@@ -1,35 +1,107 @@
-# Email/SMS Spam Classifier
+# 📧 Spam Classifier
 
-A replayable machine learning project to classify messages as `spam` or `ham` using a Multinomial Naive Bayes model.
+A machine learning web app that classifies a message as **Spam** or **Not Spam** (Ham) in real time.
 
-## Setup
+🔗 **Live Demo:** [https://spam-classifier.onrender.com](https://spam-classifier.onrender.com)
 
-1. Make sure you have Python installed.
-2. Install the required dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
+> ⚠️ Hosted on Render's free plan, so the first load may take 30-60 seconds if the app has been idle.
 
-## Usage
+---
 
-### 1. Train the model
-Run the `train.py` script. It will read data from `spam.csv`, train a Multinomial Naive Bayes model using scikit-learn, print the accuracy metrics, and save the model to `spam_classifier_model.pkl`.
+## 📸 Screenshot
 
-```bash
-python train.py
+![App Screenshot](screenshot.png)
+
+---
+
+## 🚀 Features
+
+- Enter any email or SMS text and get an instant prediction
+- Text preprocessing (lowercasing, tokenization, stopword removal, stemming)
+- TF-IDF feature extraction
+- Simple and clean web interface built with Streamlit
+
+---
+
+## 🧠 How It Works
+
+1. **Input:** the user enters a message
+2. **Preprocessing:** the text is cleaned and normalized
+3. **Vectorization:** the text is converted to numbers using TF-IDF
+4. **Prediction:** the trained model classifies it as Spam or Not Spam
+
+---
+
+## 📊 Model Performance
+
+| Metric | Score |
+|---|---|
+| Accuracy | [97%] |
+| Precision | [100%] |
+| Recall | [85%] |
+| F1-Score | [92%] |
+
+**Algorithm used:** [Multinomial Naive Bayes]
+**Dataset:** [SMS Spam Collection Dataset from Kaggle / UCI]
+
+---
+
+## 🛠️ Tech Stack
+
+- Python
+- Scikit-learn
+- NLTK
+- Pandas, NumPy
+- Streamlit
+- Render (deployment)
+
+---
+
+## 📁 Project Structure
+
+```
+spam-classifier/
+├── app.py              # Streamlit web app
+├── model.pkl           # Trained model
+├── vectorizer.pkl      # TF-IDF vectorizer
+├── requirements.txt    # Dependencies
+└── README.md
 ```
 
-### 2. Predict new messages (Replayable)
-Run the `predict.py` script. It will load the trained model and open an interactive prompt where you can type or paste new messages to see if they are classified as spam or ham.
+---
+
+## ⚙️ Run Locally
 
 ```bash
-python predict.py
-```
-Type `exit` or `quit` to stop the interactive prediction script.
+# 1. Clone the repository
+git clone https://github.com/Error-127/Spam-classifier.git
 
-## Project Structure
-- `spam.csv`: The dataset containing labeled messages (ham/spam).
-- `train.py`: The script to train the model and save it.
-- `predict.py`: The interactive script to classify new messages.
-- `requirements.txt`: Python dependencies.
-- `spam_classifier_model.pkl`: The saved model (generated after running `train.py`).
+# 2. Go to the project folder
+cd Spam-classifier
+
+# 3. Install dependencies
+pip install -r requirements.txt
+
+# 4. Run the app
+streamlit run app.py
+```
+
+The app will open at `http://localhost:8501`.
+
+---
+
+## 🔮 Future Improvements
+
+- Try other models (SVM, Random Forest, deep learning)
+- Add support for more languages
+- Show the prediction confidence score
+
+---
+
+## 👤 Author
+
+**Saurabh**
+GitHub: [@Error-127](https://github.com/Error-127)
+LinkedIn: [your-linkedin-link]
+
+⭐ If you found this project useful, please give it a star!

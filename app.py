@@ -1,13 +1,30 @@
 import gradio as gr
 import joblib
 
-# Load the trained model
-try:
-    model = joblib.load('spam_classifier_model.pkl')
-except Exception as e:
-    print(f"Error loading model: {e}")
-    print("Please ensure 'spam_classifier_model.pkl' exists and run train.py if it doesn't.")
-    exit(1)
+import os
+
+# Load the trained model or train if not present
+MODEL_FILE = 'spam_classifier_model.pkl'
+
+def get_model():
+    if os.path.exists(MODEL_FILE):
+        return joblib.load(MODEL_FILE)
+    if os.path.exists('spam.csv'):
+        import pandas as pd
+        from sklearn.feature_extraction.text import CountVectorizer
+        from sklearn.naive_bayes import MultinomialNB
+        from sklearn.pipeline import make_pipeline
+
+        print("Training model from spam.csv...")
+        df = pd.read_csv('spam.csv', encoding='latin-1')[['v1', 'v2']]
+        df.columns = ['label', 'text']
+        trained_model = make_pipeline(CountVectorizer(), MultinomialNB())
+        trained_model.fit(df['text'], df['label'])
+        joblib.dump(trained_model, MODEL_FILE)
+        return trained_model
+    raise FileNotFoundError("Could not find spam_classifier_model.pkl or spam.csv")
+
+model = get_model()
 
 def classify_email(text):
     if not text.strip():
@@ -21,7 +38,7 @@ def classify_email(text):
         return "<h2 style='color: #2ecc71;'>✅ Replyable</h2><p style='color: #27ae60;'>This is a legitimate message that you should consider replying to.</p>"
 
 # Create a custom, better-looking UI using Gradio Blocks
-with gr.Blocks(theme=gr.themes.Soft(primary_hue="blue", neutral_hue="slate")) as interface:
+with gr.Blocks() as interface:
     gr.Markdown(
         """
         <div style="text-align: center; max-width: 800px; margin: 0 auto;">
@@ -54,4 +71,4 @@ with gr.Blocks(theme=gr.themes.Soft(primary_hue="blue", neutral_hue="slate")) as
     clear_btn.click(lambda: ("", "<div style='text-align: center; padding: 2rem; color: #95a5a6; border: 2px dashed #bdc3c7; border-radius: 8px;'>Result will appear here</div>"), inputs=None, outputs=[input_box, output_box])
 
 if __name__ == "__main__":
-    interface.launch()
+    interface.launch(theme=gr.themes.Soft(primary_hue="blue", neutral_hue="slate"))
